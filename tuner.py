@@ -1,4 +1,4 @@
-#! /usr/bin/env/python
+#! /usr/bin/env python
 ######################################################################
 # tuner.py - a minimal command-line guitar/ukulele tuner in Python.
 # Requires numpy and pyaudio.
