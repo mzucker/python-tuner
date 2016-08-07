@@ -77,7 +77,7 @@ print
 # As long as we are getting data:
 while stream.is_active():
 
-    # Shift the buffer down 
+    # Shift the buffer down and new data in
     buf[:-FRAME_SIZE] = buf[FRAME_SIZE:]
     buf[-FRAME_SIZE:] = np.fromstring(stream.read(FRAME_SIZE), np.int16)
 
@@ -91,9 +91,9 @@ while stream.is_active():
     n = freq_to_number(freq)
     n0 = int(round(n))
 
+    # Console output once we have a full buffer
     num_frames += 1
 
-    # Awesome console output
     if num_frames >= FRAMES_PER_FFT:
         print 'freq: {:7.2f} Hz     note: {:>3s} {:+.2f}'.format(
             freq, note_name(n0), n-n0)
